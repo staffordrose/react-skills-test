@@ -1,18 +1,20 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
+// import PersonAdd from '@mui/icons-material/PersonAdd';
+// import Settings from '@mui/icons-material/Settings';
+// import Logout from '@mui/icons-material/Logout';
 
-export default function AccountMenu({ onClick }) {
+export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -26,13 +28,13 @@ export default function AccountMenu({ onClick }) {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Typography sx={{ minWidth: 100 }}>Contact</Typography>
         <Typography sx={{ minWidth: 100 }}>profile</Typography>
-        <Tooltip title="Account settings">
+        <Tooltip title='Account settings'>
           <IconButton
             onClick={handleClick}
-            size="small"
+            size='small'
             sx={{ ml: 2 }}
             aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
+            aria-haspopup='true'
             aria-expanded={open ? 'true' : undefined}
           >
             <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
@@ -41,7 +43,7 @@ export default function AccountMenu({ onClick }) {
       </Box>
       <Menu
         anchorEl={anchorEl}
-        id="account-menu"
+        id='account-menu'
         open={open}
         onClose={handleClose}
         onClick={handleClose}
@@ -74,8 +76,10 @@ export default function AccountMenu({ onClick }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={onClick}>
-          <Avatar /> Open Form
+        <MenuItem>
+          <Button component={Link} to='/todo'>
+            <Avatar /> Open Form
+          </Button>
         </MenuItem>
       </Menu>
     </React.Fragment>
